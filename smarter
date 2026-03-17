@@ -1,0 +1,154 @@
+<!-- ========================= -->
+<!-- SmartTel Demo Website -->
+<!-- Ready for SAS CI 360 Demo -->
+<!-- ========================= -->
+
+<!-- ========== index.html ========== -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SmartTel - Home</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- CI360 TAG -->
+<script src="YOUR_CI360_TAG.js"></script>
+
+<nav class="navbar navbar-dark bg-dark p-3">
+  <a class="navbar-brand" href="index.html">SmartTel</a>
+</nav>
+
+<div class="container mt-5 text-center">
+  <h1>Welcome to SmartTel</h1>
+  <p>Best prepaid & postpaid plans</p>
+
+  <a href="prepaid.html" class="btn btn-primary m-2">View Prepaid Plans</a>
+  <a href="postpaid.html" class="btn btn-success m-2">Explore Postpaid</a>
+  <a href="offers.html" class="btn btn-warning m-2">View Offers</a>
+</div>
+
+</body>
+</html>
+
+
+<!-- ========== prepaid.html ========== -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prepaid Plans</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<script src="YOUR_CI360_TAG.js"></script>
+
+<div class="container mt-5">
+  <h2>Prepaid Plans</h2>
+
+  <div class="card p-3 m-3">
+    <h4>₹199 Plan</h4>
+    <p>1.5GB/day</p>
+    <a href="cart.html" class="btn btn-primary" onclick="trackRecharge('199')">Recharge Now</a>
+  </div>
+
+  <div class="card p-3 m-3">
+    <h4>₹399 Plan</h4>
+    <p>2GB/day</p>
+    <a href="cart.html" class="btn btn-primary" onclick="trackRecharge('399')">Recharge Now</a>
+  </div>
+
+</div>
+
+<script>
+function trackRecharge(plan) {
+  console.log("Recharge Clicked:", plan);
+}
+</script>
+
+</body>
+</html>
+
+
+<!-- ========== postpaid.html ========== -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Postpaid Plans</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<script src="YOUR_CI360_TAG.js"></script>
+
+<div class="container mt-5">
+  <h2>Postpaid Plans</h2>
+
+  <div class="card p-3 m-3">
+    <h4>₹699 Premium</h4>
+    <p>Unlimited Calls + 100GB Data</p>
+    <button class="btn btn-success" onclick="trackUpgrade()">Upgrade Now</button>
+  </div>
+</div>
+
+<script>
+function trackUpgrade() {
+  console.log("Postpaid Interest");
+}
+</script>
+
+</body>
+</html>
+
+
+<!-- ========== offers.html ========== -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Offers</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<script src="YOUR_CI360_TAG.js"></script>
+
+<div class="container mt-5">
+  <h2>Special Offers</h2>
+
+  <div class="alert alert-info">
+    Recharge today and get 10% extra data!
+  </div>
+
+</div>
+</body>
+</html>
+
+
+<!-- ========== cart.html ========== -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recharge</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<script src="YOUR_CI360_TAG.js"></script>
+
+<div class="container mt-5 text-center">
+  <h2>Recharge Page</h2>
+  <p>Simulated Checkout</p>
+
+  <button class="btn btn-danger" onclick="abandon()">Leave Without Paying</button>
+  <button class="btn btn-success" onclick="complete()">Complete Recharge</button>
+</div>
+
+<script>
+function abandon() {
+  console.log("User Abandoned");
+}
+
+function complete() {
+  console.log("Recharge Completed");
+  alert("Recharge Successful!");
+}
+</script>
+
+</body>
+</html>
