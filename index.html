@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SmartTel CI360 Demo (Stable)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <!-- =============================== -->
+  <!-- CI360 SAFE INITIALIZATION -->
+  <!-- =============================== -->
+
+  <script>
+  (function(ci, a) {
+    window[ci] = window[ci] || function() {
+      (window[ci].q = window[ci].q || []).push(arguments);
+    };
+    window[ci].a = a || {};
+  })('ci360', { tenantId: '2a7ea85c0b000164f7542674' });
+  </script>
+
+  <!-- CI360 SCRIPT -->
+  <script async data-efname="ci360"
+    src="https://ingest-training.ci360.sas.com/js/ot2.min.js">
+  </script>
+
+  <!-- =============================== -->
+  <!-- SAFE EVENT HANDLING (FIXED) -->
+  <!-- =============================== -->
+
+  <script>
+
+    // IMPORTANT FIX:
+    // Always call ci360 directly (queue handles timing)
+    function sendEvent(name, data) {
+      try {
+        ci360('send', 'event', name, data);
+        console.log('Event Sent:', name, data);
+      } catch (e) {
+        console.error('Event Error:', e);
+      }
+    }
+
+    // Page view after slight delay
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        sendEvent('page_view', { page: 'home' });
+      }, 1000);
+    });
+
+  </script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark p-3">
+  <span class="navbar-brand">SmartTel - CI360 Demo</span>
+</nav>
+
+<div class="container mt-4">
+
+  <!-- CI360 PERSONALIZATION SPOT -->
+  <div data-ef-spot="offer_spot" class="alert alert-warning text-center">
+    🔥 Default Offer: Explore our plans
+  </div>
+
+  <!-- PREPAID -->
+  <h3>Prepaid</h3>
+  <div class="card p-3 mb-3">
+    <h5>Prepaid Plans</h5>
+    <p>Affordable daily data plans</p>
+    <button class="btn btn-primary" onclick="selectPrepaid()">View Prepaid Plans</button>
+  </div>
+
+  <!-- POSTPAID -->
+  <h3>Postpaid</h3>
+  <div class="card p-3 mb-3">
+    <h5>Postpaid Plans</h5>
+    <p>Premium unlimited plans</p>
+    <button class="btn btn-success" onclick="selectPostpaid()">View Postpaid Plans</button>
+  </div>
+
+</div>
+
+<script>
+
+function selectPrepaid() {
+  sendEvent('plan_select', { plan_type: 'prepaid' });
+}
+
+function selectPostpaid() {
+  sendEvent('plan_select', { plan_type: 'postpaid' });
+}
+
+// ===============================
+// TEST CASES (SIMPLIFIED)
+// ===============================
+
+console.log('Test 1: Page Loaded');
+
+setTimeout(function() {
+  console.log('Test 2: ci360 type =', typeof ci360);
+}, 1000);
+
+setTimeout(function() {
+  sendEvent('test_event', { test: 'ok' });
+  console.log('Test 3: test_event sent');
+}, 2000);
+
+</script>
+
+</body>
+</html>
