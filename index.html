@@ -8,19 +8,23 @@
   <!-- CI360 SAFE INITIALIZATION -->
   <!-- =============================== -->
 
-  <script>
-  (function(ci, a) {
-    window[ci] = window[ci] || function() {
-      (window[ci].q = window[ci].q || []).push(arguments);
+<script>
+(function(ci, a) {
+  window[ci] || function() {
+    var ef = window[ci] = function() {
+      return ef.q.push(arguments);
     };
-    window[ci].a = a || {};
-  })('ci360', { tenantId: '2a7ea85c0b000164f7542674' });
-  </script>
-
-  <!-- CI360 SCRIPT -->
-  <script async data-efname="ci360"
-    src="https://ingest-training.ci360.sas.com/js/ot2.min.js">
-  </script>
+    ef.q = [];
+    ef.a = a || {};
+  }();
+})
+('ci360', {
+  tenantId: '2a7ea85c0b000164f7542674'
+});
+</script>
+<script async data-efname='ci360' src='https://ingest-training.ci360.sas.com/js/ot2.min.js' id='ob-script-async'>
+</script>
+  
 
   <!-- =============================== -->
   <!-- SAFE EVENT HANDLING (FIXED) -->
